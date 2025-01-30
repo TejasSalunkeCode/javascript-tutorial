@@ -15,7 +15,7 @@ const getcountryname=(code)=>{
 const getweather=async()=>{
     const apiKey = 'caa27f8051e79d93e7c8176493e119ba';
     const city='pune';
-    const weatherUrl =  `httpss://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
 ;
     try{
         const res=await fetch(weatherUrl); 
