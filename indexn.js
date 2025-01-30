@@ -27,6 +27,7 @@ const getweather=async()=>{
        cityname.innerHTML=name;
     }catch(error){
         console.log(error);  
+        
     }
 };
 
