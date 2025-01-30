@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome To Dad Jokes</h1>
+        <section class="api_body"></section>
+        <button id="fetchjoke">Get Another Joke</button>
+    </div>
+    <script>
+  const apibody=document.querySelector(".aoi_body");
+  const apiurl="https://official-joke-api.appspot.com/random_joke";
+
+        const fetchdata=()=>{
+            fetch(apiurl,{
+                headers:{
+                    Accept:"application/json"
+                },
+            }).then((res)=>{
+                console.log(res);
+                return res.json();
+            })
+            .then((data)=>{
+                console.log(data.joke);
+                apibody.innerHTML=data.joke;
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        };
+
+        window.onload=fetchdata;
+        document.getElementById("fetchdata").addEventListener("click",fetchdata)
+    </script>
+</body>
+</html>

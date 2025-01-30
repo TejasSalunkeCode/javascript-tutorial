@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <section>
+        <div>
+            <button id="mybutton">#051937</button>
+            <button id="mybutton2">#008793</button>
+        </div>
+        <h2>copy your Code</h2>
+        <div class="copycode">
+            background-image:linear-gradient(to right,rgb(92,145,229),rgb(152,63,198))
+        </div>
+    </section>
+
+    <script>
+        let btn1 = document.getElementById("mybutton")
+        let btn2 = document.getElementById("mybutton2")
+        let copydiv=document.querySelector(".copycode")
+        let rgb1="#0000"
+        let rgb2="#4444"
+
+
+        const hexvalues=()=>{
+            let colorgen="#"
+            let myhexavalue = "0123456789abcdef";
+            for(let i=0;i<6;i++){
+               colorgen=colorgen+ myhexavalue[Math.floor(Math.random()*16)] 
+               
+            }
+            return colorgen;
+        };
+        
+        const handlebtn1 = () => {
+          rgb1=hexvalues();
+            console.log(rgb1);
+            btn1.innerText=rgb1;
+            document.body.style.backgroundImage=`linear-gradient(to right,${rgb1},${rgb2})`;
+             copydiv.innerHTML=` background-image:linear-gradient(to right,${rgb1},${rgb2})`;
+             };
+
+        const handlebtn2 = () => {
+        rgb2=hexvalues();
+            console.log(rgb2);
+            btn2.innerText=rgb2;
+            document.body.style.backgroundImage=`linear-gradient(to right,${rgb1},${rgb2})`;
+             copydiv.innerHTML=` background-image:linear-gradient(to right,${rgb1},${rgb2})`;
+        };
+      
+
+        btn1.addEventListener('click', handlebtn1)
+        btn2.addEventListener('click', handlebtn2)
+
+        copydiv.addEventListener('click',()=>{
+            navigator.clipboard.writeText(copydiv.innerText)
+        
+      
+        })
+        btn1.style.backgroundColor=rgb1;
+        btn2.style.backgroundColor=rgb2;
+    </script>
+</body>
+
+</html> 

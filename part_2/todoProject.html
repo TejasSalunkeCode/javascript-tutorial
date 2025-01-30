@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .todo-container {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .todo-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #3c8dbc;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background-color: #3185a5;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .todo-item li {
+            margin: 0;
+        }
+
+        .deletebtn {
+            padding: 5px 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .deletebtn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Todo List</h1>
+
+    <div class="todo-container">
+        <form>
+            <input type="text" id="inputvvalue" class="todo-input" placeholder="Add a new todo">
+            <button class="btn">Add Todo</button>
+        </form>
+        <section class="todoitem"></section>
+    </div>
+
+    <script>
+        const inputvalue = document.getElementById("inputvvalue");
+        const maintodoelem = document.querySelector(".todoitem");
+
+        const gettodolistfromlocal = () => {
+            return JSON.parse(localStorage.getItem("TodoList")) || [];
+        };
+
+        const addtolocalstorage = (locattodolost) => {
+            localStorage.setItem("TodoList", JSON.stringify(locattodolost));
+        };
+
+        let locattodolost = gettodolistfromlocal();
+
+        const addtododynamicelement = (curele) => {
+            const divelement = document.createElement("div");
+            divelement.classList.add("todo-item");
+            divelement.innerHTML = `<li>${curele}</li><button class="deletebtn">Delete</button>`;
+            maintodoelem.append(divelement);
+        };
+
+        const addtodoList = (e) => {
+            e.preventDefault();
+            const todolistvaue = inputvalue.value.trim();
+
+            if (todolistvaue !== "" && !locattodolost.includes(todolistvaue.toLowerCase())) {
+                locattodolost.push(todolistvaue.toLowerCase());
+                locattodolost = [...new Set(locattodolost)];
+
+                console.log("Updated Todo List (after add):", locattodolost);
+
+                addtolocalstorage(locattodolost);
+
+                addtododynamicelement(todolistvaue);
+                inputvalue.value = '';
+            }
+        };
+
+        const sowtodolist = () => {
+            console.log("Initial Todo List:", locattodolost);
+
+            locattodolost.forEach((curele) => {
+                addtododynamicelement(curele);
+            });
+        };
+
+        sowtodolist();
+
+        const removetodoelement = (e) => {
+            const todoremove = e.target;
+            let todolistcontent = todoremove.previousElementSibling.innerText;
+
+            let parentEle = todoremove.parentElement;
+
+            locattodolost = locattodolost.filter((curtodo) => {
+                return curtodo !== todolistcontent.toLowerCase();
+            });
+
+            console.log("Updated Todo List (after delete):", locattodolost);
+
+            addtolocalstorage(locattodolost);
+            parentEle.remove();
+        };
+
+        maintodoelem.addEventListener('click', (e) => {
+            if (e.target.classList.contains("deletebtn")) {
+                removetodoelement(e);
+            }
+        });
+
+        document.querySelector("form").addEventListener('submit', (e) => {
+            addtodoList(e);
+        });
+    </script>
+</body>
+
+</html>
+a 

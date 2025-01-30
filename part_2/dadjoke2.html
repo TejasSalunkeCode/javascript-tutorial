@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #e50914;
+        }
+        p {
+            font-size: 18px;
+            color: #f4f4f4;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #b4060a;
+        }
+        .error {
+            color: #e50914;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome To Dad Jokes</h1>
+        <section class="api_body"></section>
+        <button id="fetchjoke">Get Another Joke</button>
+        <div class="error" style="display: none;">Oops, something went wrong! Try again later.</div>
+    </div>
+
+    <script>
+        const apibody = document.querySelector(".api_body");
+        const errorDiv = document.querySelector(".error");
+        const apiurl = "https://official-joke-api.appspot.com/random_joke";
+
+        const fetchdata = () => {
+            fetch(apiurl, {
+                headers: {
+                    Accept: "application/json"
+                },
+            }).then((res) => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch joke');
+                }
+                return res.json();
+            })
+            .then((data) => {
+                apibody.innerHTML = `<p><strong>${data.setup}</strong><br>${data.punchline}</p>`;
+                errorDiv.style.display = 'none';
+            })
+            .catch((error) => {
+                apibody.innerHTML = '';
+                errorDiv.style.display = 'block';
+            });
+        };
+
+        window.onload = fetchdata;
+
+        document.getElementById("fetchjoke").addEventListener("click", fetchdata);
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e1f5fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            box-sizing: border-box;
+        }
+
+        #countdown {
+            font-size: 72px;
+            margin: 20px 0;
+            color: #00796b;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        button:disabled {
+            background-color: #b2dfdb;
+            cursor: not-allowed;
+        }
+
+        .resetvalue {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00796b;
+        }
+
+        .resetvalue p {
+            margin: 5px 0;
+            font-style: italic;
+        }
+
+        .buttons button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <p id="countdown">0</p>
+        <div class="buttons">
+            <button class="start_btn">Start</button>
+            <button class="reset_btn">Reset</button>
+            <button class="stop_btn">Stop</button>
+            <button class="time_btn">GetTime</button>
+            <button class="clear_btn">ClearTime</button>
+        </div>
+        <div class="resetvalue"></div>
+    </section>
+
+    <script>
+        const countdownelem = document.getElementById("countdown");
+        const resetvalueelement = document.querySelector(".resetvalue");
+
+        let startcount = 0;
+        let intervalid;
+
+        const stattimer = () => {
+            intervalid = setInterval(() => {
+                countdownelem.innerText = startcount;
+                startcount++;
+            }, 1000);
+        };
+
+        const stoptimer = () => {
+            showstopvalue();
+            clearInterval(intervalid);
+        };
+
+        const resetTimer = () => {
+            startcount = 0;
+            countdownelem.innerText = startcount;
+            clearInterval(intervalid);
+        };
+
+        const showstopvalue = () => {
+            const newpara = document.createElement("p");
+            newpara.innerText = `The stop time is: ${startcount - 1}`;
+            resetvalueelement.append(newpara);
+        };
+
+        const cleartimevalue = () => {
+            resetvalueelement.innerHTML = "";
+        };
+
+        document.querySelector(".start_btn").addEventListener("click", stattimer);
+        document.querySelector(".reset_btn").addEventListener("click", resetTimer);
+        document.querySelector(".stop_btn").addEventListener("click", stoptimer);
+        document.querySelector(".time_btn").addEventListener("click", showstopvalue);
+        document.querySelector(".clear_btn").addEventListener("click", cleartimevalue);
+    </script>
+</body>
+</html>

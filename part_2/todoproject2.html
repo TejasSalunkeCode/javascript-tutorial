@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <br />
+    <form>
+
+        <div>
+            <input type="text" id="inputvvalue">
+            <button class="btn">Add Todo</button>
+        </div>
+        <section class="todoitem"></section>
+    </form>
+    <script>
+        const inputvalue = document.getElementById("inputvvalue")
+        const maintodoelem = document.querySelector(".todoitem")
+
+
+
+        const gettodolistfromlocal = () => {
+            return JSON.parse(localStorage.getItem("TodoList"))
+        }
+        const addtolocalstorage=(locattodolost)=>{
+          return localStorage.setItem("TodoList",JSON.stringify(locattodolost));
+        }
+        let locattodolost = gettodolistfromlocal() || [];
+
+
+         const addtododynamicelement=(curele)=>{
+            const divelement = document.createElement("div")
+            divelement.classList.add("todoitem")
+            divelement.innerHTML = ` <li> ${curele}</li>   <button class="deletebtn">Delete</button>`;
+            
+            maintodoelem.append(divelement)
+         }
+        const addtodoList = (e) => {
+            e.preventDefault();
+
+            const todolistvaue = inputvalue.value.trim();
+          
+            if(todolistvaue!="" && !locattodolost.includes(todolistvaue)){
+
+                locattodolost.push(todolistvaue);
+                locattodolost = [...new Set(locattodolost)]
+                console.log(locattodolost)
+
+                //local storage
+                localStorage.setItem("TodoList :", JSON.stringify(locattodolost))
+                
+                const divelement = document.createElement("div")
+                divelement.classList.add("todoitem")
+                divelement.innerHTML = ` <li> ${inputvalue.value}</li>   <button class="deletebtn">Delete</button>`
+                
+                maintodoelem.append(divelement)
+            }
+        }
+        const sowtodolist = () => {
+            console.log(locattodolost)
+
+            locattodolost.forEach((curele) => {
+                addtododynamicelement(curele); 
+            });
+        }
+        sowtodolist();
+        const removetodoelement=(e)=>{
+            // console.log(e.target)
+            const todoremove=e.target;
+            let todolistcontent=todoremove.previousElementSibling.innerText;
+             let parentEle=todoremove.parentElement;
+            console.log(todolistcontent)
+
+            locattodolost=locattodolost.filter((curtodo)=>{
+                return curtodo!=todolistcontent.toLowerCase();
+            });
+            addtolocalstorage(locattodolost);
+            parentEle.remove();
+
+            console.log(locattodolost)
+        };
+
+       maintodoelem.addEventListener('click',(e)=>{
+        e.preventDefault();
+        console.log(e.target)
+        if(e.target.classList.contains("deletebtn")){
+            removetodoelement(e);
+        
+        }
+       })
+        document.querySelector(".btn").addEventListener('click', (e) => {
+           
+            addtodoList(e);
+        })
+    </script>
+</body>
+
+</html>

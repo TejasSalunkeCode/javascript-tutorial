@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inline Event</h1>
+    <button onclick="alert('hello')">Greeeting</button>
+    <button ondblclick="alert('hello word')">Greeeting</button>
+    <button onmouseover="alert('hello...')">Greeeting</button>
+
+    <h1>Dom Event handler</h1>
+    <button id="btn1">Greeeting</button>
+    <button id="btn2">Greeeting</button>
+
+    
+    <h1>AddEventListener Event handler</h1>
+    <button id="mybtn1">Greeeting</button>
+    <button id="mybtn2">Greeeting</button>
+
+    
+</body>
+<script>
+    //Dom Event handler
+   document.getElementById('btn1').onmousemove=function(){
+    alert("to the world best js course")
+   }
+
+   document.getElementById('btn2').onmouseout=()=>{
+    alert("on mouse out occur")
+   }
+  
+//    AddEventListener Event handler
+
+ document.getElementById('mybtn1').addEventListener('mouseover',function(){
+    alert("addevent listener occured")
+ })
+
+ document.getElementById('mybtn2').addEventListener('click',()=>{
+   alert("fat arrow unction called")
+ })
+    
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch</title>
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: #fafafa;
+            font-family: 'Helvetica', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Watch container */
+        .watch-container {
+            background: #1e1e1e;
+            border-radius: 20px;
+            padding: 30px 50px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+        }
+
+        /* Main time style */
+        .time {
+            font-size: 80px;
+            font-weight: 600;
+            color: #00d9a3;
+            letter-spacing: 4px;
+            line-height: 1.2;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* AM/PM style */
+        .am-pm {
+            font-size: 20px;
+            color: #aaa;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive media query */
+        @media screen and (max-width: 600px) {
+            .time {
+                font-size: 60px;
+            }
+
+            .am-pm {
+                font-size: 18px;
+            }
+
+            .watch-container {
+                padding: 20px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watch-container">
+        <div class="time" id="clock">
+        </div>
+        <div class="am-pm" id="ampm"></div>
+    </div>
+
+    <script>
+        const currenttime = () => {
+            const curtime = new Date().toLocaleTimeString();
+            document.getElementById("clock").innerText = curtime;
+        };
+
+        currenttime(); 
+        setInterval(() => {
+            currenttime(); 
+        }, 1000);
+    </script>
+</body>
+</html>
