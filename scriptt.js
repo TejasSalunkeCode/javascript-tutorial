@@ -8,6 +8,7 @@ if(bar){
     })
 }
 
+
 if(close){
     bar.addEventListener('click',()=>{
         nav.classList.add('active');
