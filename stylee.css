@@ -924,3 +924,51 @@ background-color: #088178;
    color: #c9cbce;
    z-index: -9;
     }
+
+
+    .about-header{
+        background-image: url("images/banner.png");
+        width: 100%;
+        height: 40vh;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        padding: 14px;
+        color: white;
+    }
+    
+    #about-head{
+        display: flex;
+        align-items: center;
+    }
+    #about-head img{
+        width: 50%;
+        height: auto;
+    }
+    #about-head div{
+        padding-left: 40px;
+    }
+    #about-head img{
+width: 100vh;
+    }
+    #about-app{
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+
+     .video{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: grid;
+        place-items: center;
+        /* margin: 30px auto 0 auto; */
+    }
+    #about-app .video video{
+        width: 70%;
+        height: 100%;
+        border-radius: 20px;
+    }
