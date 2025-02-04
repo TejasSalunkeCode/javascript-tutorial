@@ -909,10 +909,6 @@ footer .copyright {
 #blog .blog-details a:hover::after{
 background-color: #088178;
 }
-
-
-
-
 #blog .blog-box h1{
    position: absolute;
    top: -40px;
