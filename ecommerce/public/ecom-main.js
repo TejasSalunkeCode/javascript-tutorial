@@ -1,0 +1,1 @@
+import "./ecom-style.css";
