@@ -3,7 +3,22 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+
+
+
+  /* .custom-shape-divider-bottom-1739040940 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+} */
+
+
+
+
   :root {
     font-family: "Urbanist", sans-serif;
     line-height: 1.5;
