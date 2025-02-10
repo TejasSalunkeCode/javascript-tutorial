@@ -1,21 +1,11 @@
-import "./ecom-style.css";
 
-// import prodcuts from "./products.json";
+import {data} from "../Api/products.js";
+import { showproductConatiner } from "./homeProductCards.js";
 
 // console.log(prodcuts);
+console.log("hello")
 
-fetch('./products.json')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error loading JSON:', error));
-
-
-// import { showproductConatiner }from "./homeProductCards.js";
-import { showproductConatiner } from "./homeProductCards.js"; // Use this if it's in the same folder
-
-
-// import { showproductConatiner } from "./homeProductCards"; // Correct way
-
-showproductConatiner(prodcuts);
+console.log(data)
+showproductConatiner(data);
 
 
