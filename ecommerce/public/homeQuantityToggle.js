@@ -60,6 +60,8 @@ export const homeQuantityToggle = (event, id, stock) => {
         if (quantity < stock) {
                 //  console.log("wlecome");
         
+
+                
             quantity += 1;
         } else if (quantity == stock) {
             quantity = stock;
