@@ -1,6 +1,8 @@
 const productcontainer = document.querySelector("#productContainer");
 const productTemplate = document.querySelector("#productTemplate");
 
+import { homeQuantityToggle } from './homeQuantityToggle.js';
+
 export const showproductConatiner = (products) => {
     console.log(products);
     if (!products) {
@@ -25,7 +27,13 @@ export const showproductConatiner = (products) => {
         productClone.querySelector(".stockElement")
             .addEventListener('click', (e) => {
                 // Uncomment and use this if you need homeQuantityToggle functionality
-                // homeQuantityToggle(e, id, stock);
+                homeQuantityToggle(e, id, stock.split(":")[1]);
+            });
+
+            productClone
+            .querySelector(".add-to-cart-button")
+            .addEventListener("click", (event) => {
+              addToCart(event, id, stock);
             });
 
             
