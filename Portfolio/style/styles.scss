@@ -207,10 +207,60 @@ section {
     background-color: var(--color-primary);
 }
 
-.sec1, .sec2, .sec3, .sec4, .sec5 {
+// .sec1, .sec2, .sec3, .sec4, .sec5 {
+//     display: none;
+//     transform: translateY(0) scale(1);
+// }
+
+
+.sec1{
     display: none;
     transform: translateY(0) scale(1);
 }
+.sec2{
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: blue;
+}
+.sec3{
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: violet;
+}
+.sec4{
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: yellowgreen;
+}
+.sec5{
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color:orange;
+}
+
+.active {
+    animation: scaleAnim 1s ease-in-out;
+}
+
+@keyframes scaleAnim {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.control i {
+    transition: transform 0.3s ease;
+}
+
+.control:hover i {
+    transform: scale(1.2);
+}
+
 
 .controls {
     position: fixed;
@@ -252,7 +302,3 @@ section {
 .controls .active-btn i {
     color: var(--color-white);
 }
-
-
-
-

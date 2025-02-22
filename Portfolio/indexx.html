@@ -82,7 +82,9 @@
     <title>Portfolio</title>
     
     <!-- Corrected the link to the compiled CSS file -->
-    <link rel="stylesheet" href="styles.css"> 
+    <!-- <link rel="stylesheet" href="style/style.css"> 
+      -->
+    <link rel="stylesheet" href="style/styles.scss">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,28 +96,28 @@
 </head>
 
 <body class="main-content">
-    <header class="section sec1 header active">
+    <header class="section sec1 header active" id="home">
         <!-- Placeholder for header content -->
     </header>
 
     <main>
-        <section class="section sec2 about">
+        <section class="section sec2 about" id="about">
             <!-- Placeholder for about content -->
         </section>
-        <section class="section sec3 Portfolio">
+        <section class="section sec3 Portfolio" id="Portfolio">
             <!-- Placeholder for Portfolio content -->
         </section>
-        <section class="section sec4 blogs">
+        <section class="section sec4 blogs" id="blogs">
             <!-- Placeholder for blogs content -->
         </section>
-        <section class="section sec5 contact">
+        <section class="section sec5 contact" id="contact">
             <!-- Placeholder for contact content -->
         </section>
     </main>
 
     <div class="controls">
         <!-- Each control button now has a corresponding section with data-id -->
-        <div class="control control-1 active-btn">
+        <div class="control control-1 active-btn" data-id="home">
             <i class="fas fa-home"></i>
         </div>
         <div class="control control-2" data-id="about">
@@ -131,6 +133,9 @@
             <i class="fas fa-envelope-open"></i>
         </div>
     </div>
+
+
+    <script src="app.js"></script>
 </body>
 
 </html>
