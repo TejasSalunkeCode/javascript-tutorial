@@ -419,10 +419,13 @@ section {
 }
 
 
+p{
+    margin-bottom: 16px;
+}
 
 
-// Independed Components
-.main-btn {
+.main-btn{
+    background-color: red;
     border-radius: 30px;
     color: inherit;
     font-weight: 600;
@@ -436,7 +439,6 @@ section {
     padding: 0.8rem 1.5rem;  
     background-color: transparent;
     transition: background-color 0.3s ease, transform 0.3s ease;
-
     .btn-text{
         padding: 0 1rem;
         white-space: nowrap;  
@@ -464,6 +466,49 @@ section {
         transform: scale(1.1);
     }
 }
+
+// Independed Components
+// .main-btn{
+//     border-radius: 30px;
+//     color: inherit;
+//     font-weight: 600;
+//     position: relative;
+//     border: 1px solid var(--color-secondary);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     overflow: hidden;
+//     max-width: 250px;  
+//     padding: 0.8rem 1.5rem;  
+//     background-color: transparent;
+//     transition: background-color 0.3s ease, transform 0.3s ease;
+//     .btn-text{
+//         padding: 0 1rem;
+//         white-space: nowrap;  
+//         text-overflow: ellipsis;
+//         overflow: hidden;
+
+//     }
+
+//     .btn-icon{
+//         background-color: var(--color-secondary);
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         border-radius: 50%;
+//         padding: 0.8rem; 
+//         transition: transform 0.3s ease;
+//     }
+
+//     &:hover {
+//         background-color: var(--color-secondary);
+//         transform: scale(1.05);
+//     }
+
+//     &:hover .btn-icon {
+//         transform: scale(1.1);
+//     }
+// }
 
 
 
