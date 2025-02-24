@@ -437,14 +437,15 @@ section {
     background-color: transparent;
     transition: background-color 0.3s ease, transform 0.3s ease;
 
-    .btn-text {
+    .btn-text{
         padding: 0 1rem;
         white-space: nowrap;  
         text-overflow: ellipsis;
         overflow: hidden;
+
     }
 
-    .btn-icon {
+    .btn-icon{
         background-color: var(--color-secondary);
         display: flex;
         align-items: center;
@@ -463,6 +464,7 @@ section {
         transform: scale(1.1);
     }
 }
+
 
 
 
