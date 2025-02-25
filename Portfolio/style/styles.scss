@@ -146,8 +146,6 @@
 
 
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -509,56 +507,135 @@ section {
     }
 }
 
+// .timeline{
+//     display: grid;
+//     grid-template-columns: repeat(2,1fr);
+//     grid-gap: 2rem;
+//     padding-bottom: 3rem;
+//     .timeline-item{
+//         position: relative;
+//         padding-left: 3rem;
+//         border-left: 1px solid var(--color-grey-5);
+//         .timeline-icon{
+//            position: absolute;
+//            left: -27px; 
+//            top: 0;
+//            background-color: var(--color-secondary);
+//            width: 50px;
+//            height: 50px;
+//            border-radius: 50%;
+//            display: flex;
+//            justify-content: center;
+//            align-items: center;
+//            i{
+//             font-size: 1.3rem;
+//            }
+//            .tl-duration{
+//             padding: .2rem.6rem;
+//             background-color: var(--color-grey-5);
+//             border-radius: 15px;
+//             display: inline-block;
+//             font-size: .8rem;
+//             text-transform: uppercase;
+//             font-weight: 500;
+//            }
+//            h5{
+//             padding: 1rem 0;
+//             text-transform: uppercase;
+//             font-size: 1.3rem;
+//             font-weight: 600;
+//             span{
+//                 color: var(--color-grey-2);
+//                 font-weight: 500;
+//                 font-size: 1.2rem;
+//             }
+//            }
+//            p{
+//             color: var(--color-grey-2);
+//            }
+//         }
+//     }
+// }
 
-.timeline{
+
+
+/* Timeline container */
+.timeline {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-gap: 2rem;
-    padding-bottom: 3rem;
-    .timeline-item{
-        position: relative;
-        padding-left: 3rem;
-        border-left: 1px solid var(--color-grey-5);
-        .timeline-icon{
-           position: absolute;
-           left: -27px; 
-           top: 0;
-           background-color: var(--color-secondary);
-           width: 50px;
-           height: 50px;
-           border-radius: 50%;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           i{
-            font-size: 1.3rem;
-           }
-           .tl-duration{
-            padding: .2rem.6rem;
-            background-color: var(--color-secondary);
-            border-radius: 15px;
-            display: inline-block;
-            font-size: .8rem;
-            text-transform: uppercase;
-            font-weight: 500;
-           }
-           h5{
-            padding: 1rem 0;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            font-weight: 600;
-            span{
-                color: var(--color-grey-2);
-                font-weight: 500;
-                font-size: 1.2rem;
-            }
-           }
-           p{
-            color: var(--color-grey-2);
-           }
-        }
-    }
+    grid-template-columns: repeat(2, 1fr);  /* Two columns */
+    grid-gap: 2rem;  /* Space between items */
+    padding-bottom: 3rem;  /* Bottom padding */
 }
+
+/* Each individual timeline item */
+.timeline-item {
+    position: relative;
+    padding-left: 3rem;  /* Offset for the timeline icon */
+    border-left: 1px solid var(--color-grey-5);  /* Line between items */
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+}
+
+/* Timeline icon styling */
+.timeline-icon {
+    position: absolute;
+    left: -27px;  /* Offsetting the icon to the left */
+    top: 0;
+    background-color: var(--color-secondary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;  /* Circular icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Icon inside timeline icon */
+.timeline-icon i {
+    font-size: 1.3rem;  /* Icon size */
+}
+
+/* Duration styling */
+.tl-duration {
+    padding: .2rem .6rem;
+    background-color: var(--color-grey-5);
+    border-radius: 15px;
+    display: inline-block;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 5px; /* Adjust for spacing */
+    width: 22%;
+}
+
+/* Title styling for each item */
+.timeline-item h5 {
+    padding: 1rem 0;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;  /* Remove any default margin */
+ 
+}
+
+/* Span inside title */
+.timeline-item h5 span {
+    color: var(--color-grey-2);
+    font-weight: 500;
+    font-size: 1.2rem;
+    width: 22%;
+}
+
+/* Description text */
+.timeline-item p {
+    color: var(--color-grey-2);
+    font-size: 1rem;  /* Adjust font size */
+    margin-top: 0.5rem; /* Add some space between description */
+    line-height: 1.6;  /* Improve readability */
+}
+
+
+
 
 
 
