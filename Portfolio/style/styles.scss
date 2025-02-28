@@ -328,7 +328,6 @@ section {
 // }
 
 
-
 .theme-btn {
     top: 5%;
     right: 3%;
@@ -341,33 +340,30 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 3px 15px rgb(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
     
     &:hover {
-       background-color: var(--color-primary); /* Change background on hover */
-       transform: scale(1.1); /* Slightly increase size */
-       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4); /* Enhance shadow */
+       background-color: var(--color-primary); /* Subtle hover color change */
+       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Slight shadow increase */
     }
  
     &:active {
-       transform: translateY(-3px);
+       transform: translateY(-2px); /* Slight downward movement for active effect */
     }
  
     i {
        font-size: 1.4rem;
        color: var(--color-grey-2);
        pointer-events: none;
- 
-       /* Hover icon effect */
-       transition: all 0.2s ease;
+       transition: all 0.2s ease; /* Smooth transition for icon */
     }
  
     &:hover i {
-       font-size: 1.6rem; /* Increase icon size on hover */
-       color: var(--color-white); /* Change icon color */
+       color: var(--color-grey-1); /* Subtle icon color change on hover */
     }
  }
+ 
  
 
 
