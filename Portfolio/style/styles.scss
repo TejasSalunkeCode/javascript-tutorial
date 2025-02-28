@@ -145,8 +145,9 @@
 // } 
 
 
+@import './media';
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -201,9 +202,12 @@ a {
 }
 
 header {
-    height: 100vh;
+    min-height: 100vh;
     color: var(--color-white);
     overflow: hidden;
+    @media screen and (max-width:610px) {
+        min-height: 100vh;
+    }
 }
 
 section {
