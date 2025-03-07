@@ -103,6 +103,7 @@ nav ul li{
     width: 80vw;
     margin-top: 10px;
     height: 10px; 
+    cursor: pointer;
 }
 
 .songitemcontainer{
@@ -150,5 +151,6 @@ nav ul li{
 
 .songInfo img{
     opacity: 0;
-    transition: opacity 0.4s ease-in;
+    /* transition: opacity 0.4s ease-in; */
+    transition: opacity 1s ease-in;
 }
