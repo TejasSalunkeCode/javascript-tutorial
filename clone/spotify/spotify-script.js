@@ -23,7 +23,8 @@ let songs = [
 
 songitems.forEach((element,i)=>{
     console.log(element,i);
-    element.getElementByClassName('songitem');
+    element.getElementsByTagName("img")[0].src=songs[i].coverPath;
+    element.getElementsByClassName("songName")[0].innerText=songs[i].songName;
 })
 
 
